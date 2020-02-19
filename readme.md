@@ -17,19 +17,22 @@ Options
 
 ### hellowork.js
 
-`console.log(`Hello World of work ${new Date()})`
+```
+console.log(`Hello World of work ${new Date()})
+```
 
 ### index.js
-`const { NodeBlaster } = require('node-blaster);
+```
+const { NodeBlaster } = require('node-blaster);
 
 //create the instance
 const blaster = new NodeBlaster('./hellowork.js, {maxWorkers: 3});
 
 blaster.stop();
-`
+```
 
 ## Uses
-> Writing lots of files. (use streams)
-> Making any self contained node file/process a worker process. 
+* Writing lots of files. (use streams)
+* Making any self contained node file/process a worker process. 
 
 
