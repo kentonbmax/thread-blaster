@@ -4,20 +4,25 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        {
-            "type": "node",
-            "request": "launch",
-            "name": "Mocha All",
-            "program": "${workspaceFolder}/node_modules/mocha/bin/mocha",
-            "args": [
-                "-r ts-node/register",
-                "--timeout",
-                "999999",
-                "--colors",
-                "${workspaceFolder}/tests"
-            ],
-            "console": "integratedTerminal",
-            "internalConsoleOptions": "neverOpen"
-        }
+    {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${workspaceFolder}/index.js",
+        "skipFiles": [
+            "<node_internals>/**"
+        ]
+    },
+    {
+        "type": "node",
+        "request": "launch",
+        "name": "Jasmine",
+        "program": "${workspaceFolder}/node_modules/jasmine/bin/jasmine",
+        "args": [
+          "--config=${workspaceFolder}/tests/jasmine.json",
+          "${workspaceFolder}/TSOutput/**/*[sS]pec.ts"
+        ],
+        "preLaunchTask": "tsc: build - tests/tsconfig.test.json"
+  }
     ]
 }

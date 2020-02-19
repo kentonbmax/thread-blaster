@@ -1,26 +1,23 @@
 "use strict";
 exports.__esModule = true;
-var child = require('child_process');
+var child_process_1 = require("child_process");
 var NodeBlaster = /** @class */ (function () {
-    function NodeBlaster(processFileName, options, args, execArgs) {
+    function NodeBlaster(processFileName, options, execArgs) {
+        if (options === void 0) { options = { maxWorkers: 1 }; }
+        if (execArgs === void 0) { execArgs = [
+            '--use-strict'
+        ]; }
         this._workers = [];
         this._maxWorkers = 1;
-        this._execArgs = [
-            '--use-strict'
-        ];
+        this._args = [];
         this._maxWorkers = options.maxWorkers ? options.maxWorkers : 1;
         this._processFileName = processFileName;
-        this._args = args;
         this._execArgs = execArgs;
         this.init();
     }
-    Object.defineProperty(NodeBlaster.prototype, "count", {
-        get: function () {
-            return this._workers.length;
-        },
-        enumerable: true,
-        configurable: true
-    });
+    NodeBlaster.prototype.count = function () {
+        return this._workers.length;
+    };
     // Kills all current workers. 
     NodeBlaster.prototype.stop = function () {
         if (this._workers && this._workers.length > 0) {
@@ -31,7 +28,7 @@ var NodeBlaster = /** @class */ (function () {
     };
     NodeBlaster.prototype.init = function () {
         for (var i = 0; i < this._maxWorkers; i++) {
-            this._workers.push(child.fork(this._processFileName, this._args, {
+            this._workers.push(child_process_1.fork(this._processFileName, this._args, {
                 execArgv: this._execArgs // script.js will be executed in strict mode
             }));
         }
@@ -40,7 +37,7 @@ var NodeBlaster = /** @class */ (function () {
     NodeBlaster.prototype.send = function (data) {
         try {
             var rando = Math.floor(Math.random() * Math.floor(this._maxWorkers));
-            this._workers[rando - 1].send(data);
+            this._workers[rando].send(data);
         }
         catch (error) {
             throw new Error('Failed to send data to process');
@@ -48,4 +45,4 @@ var NodeBlaster = /** @class */ (function () {
     };
     return NodeBlaster;
 }());
-exports["default"] = NodeBlaster;
+exports.NodeBlaster = NodeBlaster;

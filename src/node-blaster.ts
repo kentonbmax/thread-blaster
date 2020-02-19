@@ -1,4 +1,4 @@
-import { fork } from 'child_process';
+import { fork, ChildProcess } from 'child_process';
 
 interface IOptions {
     maxWorkers: number
@@ -6,7 +6,7 @@ interface IOptions {
 
 export class NodeBlaster{
 
-    private _workers:any[] = [];
+    private _workers: ChildProcess[] = [];
     readonly _maxWorkers: number = 1;
     readonly _processFileName: string;
     readonly _args?: string[] = [];
@@ -29,16 +29,20 @@ export class NodeBlaster{
     }
 
     // Kills all current workers. 
-    stop(){
+    stop(removeWorker = true){
         if(this._workers && this._workers.length > 0) {
-            this._workers.forEach( worker => {
-                worker.kill();
-            })
-        }
+            for(var i = 0; i < this._maxWorkers; i++){
+                const worker: ChildProcess = this._workers[i];
+                worker.kill()
+            };
+
+            if(removeWorker){
+                this._workers.length = 0;
+            }
+        };
     }
 
     init(){
-
         for(var i = 0; i < this._maxWorkers; i++){
             this._workers.push(fork(this._processFileName, this._args, {
                 execArgv: this._execArgs  // script.js will be executed in strict mode
@@ -50,7 +54,7 @@ export class NodeBlaster{
     send(data: any){
         try {
             var rando  = Math.floor(Math.random() * Math.floor(this._maxWorkers));
-            this._workers[rando -1].send(data);
+            this._workers[rando].send(data);
         } catch (error) {
             throw new Error('Failed to send data to process');
         }

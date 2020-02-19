@@ -1,3 +1,6 @@
 .vs
 node_modules
 dist
+*.js.map
+*.spec.js.map
+*.js

@@ -12,13 +12,14 @@ Installation
 Options
 1. `maxWorkers` defaults to 1, use your pysical cores as a guide where main thread is running this library. (physical cores -1)
 
-Use
+### Use
 > Using this library requires a js file that can run as a seperate process. 
 
-> hellowork.js
+### hellowork.js
+
 `console.log(`Hello World of work ${new Date()})`
 
-> index.js
+### index.js
 `const { NodeBlaster } = require('node-blaster);
 
 //create the instance
