@@ -18,6 +18,7 @@ Options
 ### hellowork.js
 
 ```
+// do work
 console.log(`Hello World of work ${new Date()})
 ```
 
@@ -28,6 +29,9 @@ const { NodeBlaster } = require('node-blaster);
 //create the instance
 const blaster = new NodeBlaster('./hellowork.js, {maxWorkers: 3});
 
+    /// do other work
+
+// stop all child processes
 blaster.stop();
 ```
 
