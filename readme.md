@@ -1,5 +1,7 @@
 # Node Blaster
 
+[![kentonbmax](https://circleci.com/gh/kentonbmax/node-blaster.svg?style=svg)](https://circleci.com/gh/circleci/circleci-docs)
+
 ## Description
 > A helper that evenly run nodejs files as a seperate process to distribute work. Utilizes the process.send to pipe data to the workers. 
 > Workers run in strict mode for your safety. 
