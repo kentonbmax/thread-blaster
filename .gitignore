@@ -7,3 +7,4 @@ dist
 *.js
 coverage
 test_results
+.DS_Store
