@@ -5,24 +5,17 @@
     "version": "0.2.0",
     "configurations": [
     {
+        "name": "Jasmine Current Spec File",
         "type": "node",
         "request": "launch",
-        "name": "Launch Program",
-        "program": "${workspaceFolder}/index.js",
-        "skipFiles": [
-            "<node_internals>/**"
-        ]
-    },
-    {
-        "type": "node",
-        "request": "launch",
-        "name": "Jasmine",
-        "program": "${workspaceFolder}/node_modules/jasmine/bin/jasmine",
+        "program": "${workspaceRoot}/node_modules/jasmine/bin/jasmine.js",
         "args": [
-          "--config=${workspaceFolder}/tests/jasmine.json",
-          "${workspaceFolder}/TSOutput/**/*[sS]pec.ts"
+          "tests/${fileBasenameNoExtension}.js"
         ],
-        "preLaunchTask": "tsc: build - tests/tsconfig.test.json"
-  }
+        "env": {
+          "NODE_PATH": "."
+        },
+        "preLaunchTask": "npm: build-test"
+      }
     ]
 }

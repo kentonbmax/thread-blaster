@@ -4,7 +4,9 @@
   "description": "Randomly creates node worker processes up to a max number for even work distribution.",
   "main": "index.js",
   "scripts": {
-    "test": "npm run build && ts-node node_modules/jasmine/bin/jasmine --config=./tests/jasmine.json",
+    "test": "ts-node node_modules/jasmine/bin/jasmine --config=./tests/jasmine.json",
+    "test-ci": "ts-node ./node_modules/jasmine-xml-reporter/bin/jasmine.js --config=./tests/jasmine.json --junitreport --output=test_results/",
+    "test-nyc": "nyc ts-node node_modules/jasmine/bin/jasmine --config=./tests/jasmine.json --cache=false",
     "build": "tsc -p tsconfig.src.json",
     "build-test": "tsc -p tests/tsconfig.test.json"
   },
@@ -23,14 +25,17 @@
     "url": "https://github.com/kentonbmax/node-blaster/issues"
   },
   "homepage": "https://github.com/kentonbmax/node-blaster#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
     "@types/jasmine": "^3.5.5",
-    "@types/lodash": "^4.14.149",
     "@types/node": "^13.7.1",
     "jasmine": "^3.5.0",
+    "jasmine-node": "^3.0.0",
+    "jasmine-xml-reporter": "^1.2.1",
+    "nyc": "^15.0.0",
     "ts-node": "^8.6.2",
+    "tslint": "^6.0.0",
     "typescript": "^3.7.5"
   }
 }

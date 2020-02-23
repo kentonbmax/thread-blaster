@@ -1,16 +1,13 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-      "declaration": false,
-      "strict": false,
-      "sourceMap": true,
-      "noImplicitAny": false,
-      "types": ["node", "jasmine"]
-  },
-  "include": [
-    "**/*[sS]pec.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "declaration": false,
+    "strict": false,
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "types": [
+      "node",
+      "jasmine"
+    ]
+  }
 }

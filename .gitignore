@@ -1,6 +1,9 @@
 .vs
+.nyc_output
 node_modules
 dist
 *.js.map
 *.spec.js.map
 *.js
+coverage
+test_results

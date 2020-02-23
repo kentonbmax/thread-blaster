@@ -7,7 +7,7 @@ interface IOptions {
 export class NodeBlaster{
 
     private _workers: ChildProcess[] = [];
-    readonly _maxWorkers: number = 1;
+    readonly _maxWorkers: number;
     readonly _processFileName: string;
     readonly _args?: string[] = [];
     readonly _execArgs?: string[];
@@ -52,10 +52,10 @@ export class NodeBlaster{
 
     // Must be same structure as data will be send in random
     send(data: any){
-        try {
-            var rando  = Math.floor(Math.random() * Math.floor(this._maxWorkers));
+        var rando  = Math.floor(Math.random() * Math.floor(this._maxWorkers));
+        if(this._workers[rando]){
             this._workers[rando].send(data);
-        } catch (error) {
+        } else {
             throw new Error('Failed to send data to process');
         }
     }

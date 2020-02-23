@@ -34,7 +34,7 @@ jobs:
             - ./node_modules
       - run: # run tests
           name: test
-          command: npm test
+          command: npm run test-cli
       - run: # run tests
           name: typescript build
           command: npm run build
