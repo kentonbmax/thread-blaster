@@ -33,7 +33,7 @@ jobs:
           paths:
             - ./node_modules
       - run: npm run pretest
-      - run: npm run test-cli
+      - run: npm run test-ci
       - run: # run tests
           name: typescript build
           command: npm run build
