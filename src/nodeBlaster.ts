@@ -18,7 +18,7 @@ export class NodeBlaster{
         execArgs: string[] = [
             '--use-strict'
         ]) {
-            this._maxWorkers = options.maxWorkers ? options.maxWorkers : 1;
+            this._maxWorkers = options.maxWorkers;
             this._processFileName = processFileName;
             this._execArgs = execArgs;
             this.init();

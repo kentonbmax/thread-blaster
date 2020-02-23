@@ -20,8 +20,16 @@ describe('test node blaster', () => {
     expect(myTest._maxWorkers).toBe(1);
   });
 
+  it('worker should have default values', async () => {
+    let myTest = new NodeBlaster('./test.js');
+    
+    expect(myTest._maxWorkers).toBe(1);
+    expect(myTest._execArgs).toEqual(['--use-strict']);
+  });
+
   it('worker should return 3', async () => {
     expect(inTest.count()).toBe(3);
+    expect(inTest._maxWorkers).toBe(3);
   });
 
   it('worker should receive messages', async () => {
