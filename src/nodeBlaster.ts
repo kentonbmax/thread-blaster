@@ -4,7 +4,7 @@ interface IOptions {
     maxWorkers: number
 }
 
-export class NodeBlaster{
+export class NodeBlaster {
 
     private _workers: ChildProcess[] = [];
     readonly _maxWorkers: number;

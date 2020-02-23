@@ -30,12 +30,12 @@ describe('test node blaster', () => {
     })
   });
 
-  /* it('worker should fail receive messages when stopped', async () => {
+  it('worker should fail receive messages when stopped', async () => {
     let data = '12345';
     inTest.stop();
     expect(() => {inTest.send({name: '12345'});})
       .toThrow(new Error('Failed to send data to process'))
-  }); */
+  });
 
   it('worker should stop and remove workers', async () => {
     let data = '12345';
