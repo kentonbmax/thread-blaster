@@ -34,6 +34,7 @@ jobs:
             - ./node_modules
       - run: npm run pretest
       - run: npm run test-ci
+      - run: npm run test-nyc
       - run: # run tests
           name: typescript build
           command: npm run build
