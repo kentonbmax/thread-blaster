@@ -41,7 +41,7 @@ describe('test node blaster', () => {
 
   it('worker should fail receive messages when stopped', async () => {
     inTest.stop();
-    expect(() => {inTest.send({name: '12345'})})
+    expect(() => {inTest.send({name: '12345'});})
       .toThrow(new Error('Failed to send data to process'))
   });
 

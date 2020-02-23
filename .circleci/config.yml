@@ -32,10 +32,9 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-      - run: # run tests
-          name: test
-          command: npm run test-ci
-      - run: # run tests
+      - run: npm run pretest
+      - run: npm run test-ci
+      - run: 
           name: typescript build
           command: npm run build
       - save_cache: # save build
