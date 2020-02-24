@@ -2,9 +2,9 @@
 .nyc_output
 node_modules
 dist
-*.js.map
+src/*.js.map
+src/*.js
 *.spec.js.map
-*.js
 coverage
 test_results
 .DS_Store

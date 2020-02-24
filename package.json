@@ -1,6 +1,6 @@
 {
   "name": "node-blaster",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "Randomly creates node worker processes from the supplied .js file up to a max number for even work distribution.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
