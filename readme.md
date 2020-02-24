@@ -22,7 +22,7 @@ Options
 ```
 // do work
 const fs = require('fs');
-console.log(`Hello World of work ${new Date()});
+console.log(`Hello World of work ${new Date()}`);
 
 process.on('message', (msg) =>{
     fs.writeFileSync(msg.path, JSON.stringify(msg.data));
