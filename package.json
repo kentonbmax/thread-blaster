@@ -19,7 +19,8 @@
   "keywords": [
     "thread",
     "parallel",
-    "worker"
+    "worker",
+    "concurrency"
   ],
   "author": "kentonbmax",
   "license": "MIT",
