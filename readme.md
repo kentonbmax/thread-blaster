@@ -21,7 +21,12 @@ Options
 
 ```
 // do work
+const fs = require('fs');
 console.log(`Hello World of work ${new Date()})
+
+process.on('message', (msg) =>{
+    fs.writeFileSync(msg.path, JSON.stringify(msg.data));
+})
 ```
 
 ### index.js
@@ -31,7 +36,16 @@ const { NodeBlaster } = require('node-blaster);
 //create the instance
 const blaster = new NodeBlaster('./hellowork.js, {maxWorkers: 3});
 
-    /// do other work
+// write to 3 files
+blaster.send({name: 'file1.text', data : {"Value": "JSON data3"}});
+blaster.send({name: 'file2.text', data : {"Value": "JSON data2"}});
+blaster.send({name: 'file3.text', data : {"Value": "JSON data1"}});
+
+// write again
+
+blaster.send({name: 'file4.text', data : {"Value": "JSON data3"}});
+blaster.send({name: 'file5.text', data : {"Value": "JSON data2"}});
+blaster.send({name: 'file6.text', data : {"Value": "JSON data1"}});
 
 // stop all child processes
 blaster.stop();
