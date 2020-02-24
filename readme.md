@@ -37,15 +37,15 @@ const { NodeBlaster } = require('node-blaster);
 const blaster = new NodeBlaster('./hellowork.js, {maxWorkers: 3});
 
 // write to 3 files
-blaster.send({name: 'file1.text', data : {"Value": "JSON data3"}});
-blaster.send({name: 'file2.text', data : {"Value": "JSON data2"}});
-blaster.send({name: 'file3.text', data : {"Value": "JSON data1"}});
+blaster.send({path: 'file1.text', data : {"Value": "JSON data3"}});
+blaster.send({path: 'file2.text', data : {"Value": "JSON data2"}});
+blaster.send({path: 'file3.text', data : {"Value": "JSON data1"}});
 
 // write again
 
-blaster.send({name: 'file4.text', data : {"Value": "JSON data3"}});
-blaster.send({name: 'file5.text', data : {"Value": "JSON data2"}});
-blaster.send({name: 'file6.text', data : {"Value": "JSON data1"}});
+blaster.send({path: 'file4.text', data : {"Value": "JSON data3"}});
+blaster.send({path: 'file5.text', data : {"Value": "JSON data2"}});
+blaster.send({path: 'file6.text', data : {"Value": "JSON data1"}});
 
 // stop all child processes
 blaster.stop();
@@ -54,5 +54,6 @@ blaster.stop();
 ## Uses
 * Writing lots of files. (use streams)
 * Making any self contained node file/process a worker process. 
+* melting CPU's :)
 
 
