@@ -22,7 +22,7 @@ Options
 ```
 // do work
 const fs = require('fs');
-console.log(`Hello World of work ${new Date()})
+console.log(`Hello World of work ${new Date()}`);
 
 process.on('message', (msg) =>{
     fs.writeFileSync(msg.path, JSON.stringify(msg.data));
@@ -31,10 +31,10 @@ process.on('message', (msg) =>{
 
 ### index.js
 ```
-const { NodeBlaster } = require('node-blaster);
+const { NodeBlaster } = require('node-blaster');
 
 //create the instance
-const blaster = new NodeBlaster('./hellowork.js, {maxWorkers: 3});
+const blaster = new NodeBlaster('./hellowork.js', {maxWorkers: 3});
 
 // write to 3 files
 blaster.send({path: 'file1.text', data : {"Value": "JSON data3"}});
