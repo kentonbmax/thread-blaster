@@ -36,19 +36,21 @@ const { NodeBlaster } = require('node-blaster');
 //create the instance
 const blaster = new NodeBlaster('./hellowork.js', {maxWorkers: 3});
 
-// write to 3 files
-blaster.send({path: 'file1.text', data : {"Value": "JSON data3"}});
-blaster.send({path: 'file2.text', data : {"Value": "JSON data2"}});
-blaster.send({path: 'file3.text', data : {"Value": "JSON data1"}});
+function doWork() {
+    blaster.send({path: './file1.text', data : {"Value": "JSON data3"}});
+    blaster.send({path: './file2.text', data : {"Value": "JSON data2"}});
+    blaster.send({path: './file3.text', data : {"Value": "JSON data1"}});
 
-// write again
+    // write again
 
-blaster.send({path: 'file4.text', data : {"Value": "JSON data3"}});
-blaster.send({path: 'file5.text', data : {"Value": "JSON data2"}});
-blaster.send({path: 'file6.text', data : {"Value": "JSON data1"}});
+    blaster.send({path: './file4.text', data : {"Value": "JSON data3"}});
+    blaster.send({path: './file5.text', data : {"Value": "JSON data2"}});
+    blaster.send({path: './file6.text', data : {"Value": "JSON data1"}});
+}
 
+doWork()
 // stop all child processes
-blaster.stop();
+setTimeout(() =>{blaster.stop(true);}, 1000);
 ```
 
 ## Uses
